@@ -14,6 +14,7 @@ namespace il.co.sherer.cecho
 
         static void ShowUsage()
         {
+#if (!PACKED)
             Console.BackgroundColor = ConsoleColor.DarkRed;
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("cecho v1.0 by elisherer");
@@ -36,6 +37,7 @@ namespace il.co.sherer.cecho
                     AnsiTable[i].ToString(), 30 + i, AnsiTable[i+8].ToString(), 30 + i);
             Console.WriteLine("* These values are used for foreground, for background add 10 to the 1st num.");
             Console.WriteLine("**The ^ sign escapes to insert other letters like & when not using parentheses.");
+#endif
             Environment.Exit(-1);
         }
 
@@ -91,6 +93,13 @@ namespace il.co.sherer.cecho
                         Console.ResetColor();
                         i++;
                     }
+                    else if (IsHex(line, i + 1) && i + 2 < line.Length && IsHex(line, i + 2))
+                    {
+                        Console.BackgroundColor = (ConsoleColor)HexVal(line[i + 1]);
+                        Console.ForegroundColor = (ConsoleColor)HexVal(line[i + 2]);
+                        i += 2;
+                    }
+#if (!PACKED)
                     else if (line[i + 1] == 'u' && i + 5 < line.Length && IsHex(line, i + 2) && IsHex(line, i + 3) && IsHex(line, i + 4) && IsHex(line, i + 5))
                     {
                         var unicode = Convert.ToInt32(line.Substring(i + 2, 4), 16);
@@ -106,18 +115,7 @@ namespace il.co.sherer.cecho
                         Console.Write(Char.ConvertFromUtf32(p0) + Char.ConvertFromUtf32(p1));
                         i += 9;
                     }
-                    else if (IsHex(line, i + 1) && i + 2 < line.Length && IsHex(line, i + 2) )
-                    {
-                        Console.BackgroundColor = (ConsoleColor)HexVal(line[i + 1]);
-                        Console.ForegroundColor = (ConsoleColor)HexVal(line[i + 2]);
-                        i += 2;
-                    }
-                    else if (line[i + 1] == 'u' && i + 5 < line.Length && IsHex(line, i + 2) && IsHex(line, i + 3) && IsHex(line, i + 4) && IsHex(line, i + 5))
-                    {
-                        var unicode = Convert.ToInt32(line.Substring(i + 2, 4), 16);
-                        Console.Write(Char.ConvertFromUtf32(unicode));
-                        i += 5;
-                    }
+#endif
                     else if (i + 6 < line.Length && line.Substring(i+1).StartsWith("x1b["))
                     {
                         if (line[i + 6] == 'm' && line[i + 5] == '0') //reset

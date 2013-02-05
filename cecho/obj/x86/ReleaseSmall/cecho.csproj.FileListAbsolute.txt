@@ -1,0 +1,3 @@
+d:\Eli\cecho\cecho\bin\x86\ReleaseSmall\cecho.exe
+d:\Eli\cecho\cecho\obj\x86\ReleaseSmall\ResolveAssemblyReference.cache
+d:\Eli\cecho\cecho\obj\x86\ReleaseSmall\cecho.exe
