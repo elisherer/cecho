@@ -1,0 +1,10 @@
+d:\SystemControl\cecho\cecho\bin\Debug\cecho.exe
+d:\SystemControl\cecho\cecho\bin\Debug\cecho.pdb
+d:\SystemControl\cecho\cecho\obj\x86\Debug\ResolveAssemblyReference.cache
+d:\SystemControl\cecho\cecho\obj\x86\Debug\cecho.exe
+d:\SystemControl\cecho\cecho\obj\x86\Debug\cecho.pdb
+d:\Eli\cecho\cecho\obj\x86\Debug\cecho.exe
+d:\Eli\cecho\cecho\obj\x86\Debug\cecho.pdb
+d:\Eli\cecho\cecho\bin\Debug\cecho.exe
+d:\Eli\cecho\cecho\bin\Debug\cecho.pdb
+d:\Eli\cecho\cecho\obj\x86\Debug\ResolveAssemblyReference.cache
