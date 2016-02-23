@@ -4,7 +4,7 @@ using System.Text;
 
 namespace il.co.sherer.cecho
 {
-    class Program
+    internal class Program
     {
         static ConsoleColor[] AnsiTable = new[] { 
             ConsoleColor.Black, ConsoleColor.DarkRed, ConsoleColor.DarkGreen, ConsoleColor.DarkYellow,
@@ -12,7 +12,7 @@ namespace il.co.sherer.cecho
             ConsoleColor.Gray, ConsoleColor.Red, ConsoleColor.Green, ConsoleColor.Yellow,
             ConsoleColor.Blue, ConsoleColor.Magenta, ConsoleColor.Cyan, ConsoleColor.White};
 
-        static void ShowUsage()
+        internal static void ShowUsage()
         {
 #if (!PACKED)
             Console.BackgroundColor = ConsoleColor.DarkRed;
@@ -38,23 +38,27 @@ namespace il.co.sherer.cecho
             Console.WriteLine("* These values are used for foreground, for background add 10 to the 1st num.");
             Console.WriteLine("**The ^ sign escapes to insert other letters like & when not using parentheses.");
 #endif
-            Environment.Exit(-1);
+            //Environment.ExitCode = -1;
         }
 
-        static bool IsHex(string s, int index)
+        internal static bool IsHex(string s, int index)
         {
             return Char.IsDigit(s, index) || (s[index] >= 'A' && s[index] <= 'F') || (s[index] >= 'a' && s[index] <= 'f');
         }
 
-        static int HexVal(int c)
+        internal static int HexVal(int c)
         {   
             return (c > '9') ? (c + 10 - (c > 'Z' ? 'a' : 'A')) : (c - '0');
         }
 
-        static void Main(string[] args)
+        internal static void Main(string[] args)
         {
+            Environment.ExitCode = 0;
             if (args.Length == 0 || args[0].StartsWith("/"))
+            {
                 ShowUsage();
+                return;
+            }
             var line = string.Join(" ", args);
             var lastStop = 0;
             for (var i = 0; i < line.Length; i++)
