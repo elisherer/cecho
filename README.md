@@ -19,3 +19,16 @@ Escape Codes:
 * The values 0-F are used for foreground, for background add 10.
 **The ^ sign escapes to insert other letters like & when not using parentheses.
 ```
+Example:
+```bat
+@echo off
+cecho "ÜŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰÜ"
+cecho "ŰŰ\40   \mŰ\50    \mŰŰ\40   \mŰ\30 \mŰŰ\30 \mŰŰ\20   \mŰŰ"
+cecho "Ű\40 \mŰŰŰŰ\50 \mŰŰŰŰ\40 \mŰŰŰŰ\30 \mŰŰ\30 \mŰ\20 \mŰŰŰ\20 \mŰ"
+cecho "Ű\40 \mŰŰŰŰ\50    \mŰ\40 \mŰŰŰŰ\30    \mŰ\20 \mŰŰŰ\20 \mŰ"
+cecho "Ű\40 \mŰŰŰŰ\50 \mŰŰŰŰ\40 \mŰŰŰŰ\30 \mŰŰ\30 \mŰ\20 \mŰŰŰ\20 \mŰ"
+cecho "ŰŰ\40   \mŰ\50    \mŰŰ\40   \mŰ\30 \mŰŰ\30 \mŰŰ\20   \mŰŰ by elisherer"
+cecho "ßŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰŰß"
+```
+
+![](./cecho/screenshot.jpg)
